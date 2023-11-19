@@ -13,7 +13,7 @@ function viewPokemon(id, name, type) {
   );
 
   let bg_img = new Image();
-  bg_img.src = `img/anim/${long_id}.gif`;
+  bg_img.src = `https://img.pokemondb.net/sprites/black-white/anim/normal/${name_fix}.gif`;
   bg_img.onload = function () {
     let h = $(`#p${long_id} h1`).outerHeight();
     let w = (h / this.height) * this.width + 16;

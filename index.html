@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <!-- INFO: FUNDAMENTAL SETUP FOR PLATFORM COMPATIBILITY -->
+    <meta charset="utf-8" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="window-target" content="_top" />
+    <meta http-equiv="expires" content="Min, 22 Jul 2002 11:12:01 GMT" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalabe=no"
+    />
+
+    <!-- INFO: HUMAN READABLE INFORMATION -->
+    <title>QuickDex</title>
+    <meta
+      name="description"
+      content="Applet for quickly finding an encountered pokemon, and its type parameters."
+    />
+    <meta name="author" content="David Svane" />
+    <meta
+      name="keywords"
+      content="quick, poke, dex, pokemon, pokedex, type, strength, strong, weakness, weak, against, offense, defense"
+    />
+
+    <!-- INFO: LOCAL FILES AND LIBRARIES -->
+    <link rel="icon" type="image/ico" href="icon.ico" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/pokemon.css" />
+    <link rel="manifest" href="manifest.json" crossorigin="use-credentials" />
+  </head>
+
+  <body>
+    <header></header>
+    <nav>
+      <img src="img/ball-l.png" id="left-ball" />
+      <input
+        type="text"
+        id="search"
+        placeholder="Search..."
+        autofocus="true"
+        oninput="autosearch(this.value)"
+      />
+      <img src="img/ball-r.png" id="right-ball" />
+    </nav>
+    <main class="splash"></main>
+
+    <!-- INFO: IMPORTS -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/fuse.min.js"></script>
+    <script src="js/type.js"></script>
+    <script src="js/dex.js"></script>
+    <script src="js/pokemon.js"></script>
+
+    <!-- INFO: DOCUMENT READY -->
+    <script>
+      $(document).ready(function () {
+        let top = Math.ceil($("nav").outerHeight());
+        $("main").css("height", `calc(100dvh - ${top}px)`);
+        $("#left-ball").css("height", `calc(${top}px - 1em)`);
+        $("#right-ball").css("height", `calc(${top}px - 1em)`);
+
+        $(document).on("keydown", function (e) {
+          $("#search").focus();
+        });
+      });
+    </script>
+
+    <!-- INFO: FUSE SETUP -->
+    <script>
+      const fuse_options = {
+        keys: ["name"],
+      };
+
+      const fuse = new Fuse(dex, fuse_options);
+
+      function autosearch(value) {
+        $("main").toggleClass("splash", value.length == 0);
+        const result = fuse.search(value, { limit: 5 });
+        $("main").html("");
+        result.forEach((r) => {
+          viewPokemon(r.item.id, r.item.name, r.item.type);
+        });
+      }
+    </script>
+  </body>
+</html>

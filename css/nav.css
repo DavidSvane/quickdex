@@ -1,0 +1,31 @@
+nav {
+  padding: 1em;
+  position: relative;
+  box-shadow: 0 0 8px black;
+}
+
+input {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.5em;
+  color: red;
+  border-radius: 2em;
+  border: 2px solid #383838;
+  padding: 0.5em;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  caret-color: transparent;
+}
+
+#left-ball {
+  position: fixed;
+  top: 0.5em;
+  left: 0.5em;
+}
+
+#right-ball {
+  position: fixed;
+  top: 0.5em;
+  right: 0.5em;
+}

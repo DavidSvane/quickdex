@@ -1,0 +1,24 @@
+{
+  "name": "QuickDex",
+  "short_name": "DS.QD",
+  "description": "quick pokemon type advantage lookup",
+  "start_url": "https://davidsvane.com/dex",
+  "scope": ".",
+  "background_color": "#FFF",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "dir": "ltr",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

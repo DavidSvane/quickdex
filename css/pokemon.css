@@ -1,0 +1,55 @@
+.pokemon {
+  display: grid;
+  border-radius: 1em;
+  padding: 1em;
+  box-sizing: border-box;
+  grid-template-rows: repeat(3, auto);
+  justify-items: center;
+  column-gap: 8px;
+}
+
+.pokemon h1 {
+  grid-row: 1 / 2;
+  margin: 0 0 8px;
+  padding: 8px 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+}
+
+.pokemon h2 {
+  grid-row: 2 / 3;
+  width: 100%;
+  text-align: center;
+  border-radius: 1em;
+  padding: 0 0 8px;
+  margin: 0 0 8px;
+  border-bottom: 10px solid darkcyan;
+  font-size: 1.2;
+  font-weight: normal;
+}
+
+.pokemon h2.x4 {
+  border-color: green;
+}
+.pokemon h2.x2 {
+  border-color: yellowgreen;
+}
+.pokemon h2.x0 {
+  border-color: red;
+}
+.pokemon h2.x05 {
+  border-color: gold;
+}
+.pokemon h2.x025 {
+  border-color: orange;
+}
+
+.pokemon:nth-child(odd) {
+  background: #eee;
+}
+
+.pokemon .typelabels {
+  grid-row: 3 / 4;
+  max-width: 100%;
+}

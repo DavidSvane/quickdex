@@ -12,13 +12,9 @@ function viewPokemon(id, name, type) {
     `<h1 style='background-image: url("https://img.pokemondb.net/sprites/black-white/anim/normal/${name_fix}.gif")'>${name} <sup>${id}</sup></h1>`
   );
 
-  let bg_img = new Image();
-  bg_img.src = `https://img.pokemondb.net/sprites/black-white/anim/normal/${name_fix}.gif`;
-  bg_img.onload = function () {
-    let h = $(`#p${long_id} h1`).outerHeight();
-    let w = (h / this.height) * this.width + 16;
-    $(`#p${long_id} h1`).css("padding-left", `${w}px`);
-  };
+  let h = $(`#p${long_id} h1`).outerHeight();
+  let w = (h / img_d[long_id].h) * img_d[long_id].w + 16;
+  $(`#p${long_id} h1`).css("padding-left", `${w}px`);
 
   $(`#p${long_id}`).append(`<h2 class="type t">Tp.</h2>`);
   $(`#p${long_id}`).append(`<h2 class="x4 empty">x4</h2>`);

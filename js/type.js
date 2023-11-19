@@ -63,17 +63,3 @@ let types = [
   [1, 0.5, 0.5, 1, 0.5, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0.5, 2],
   [1, 0.5, 1, 1, 1, 1, 2, 0.5, 1, 1, 1, 1, 1, 1, 2, 2, 0.5, 1],
 ];
-
-// INFO: CALCULATE DOUBLE TYPES
-let doubles = {};
-let type = Object.keys(order);
-let number_of_types = Object.keys(order).length;
-
-for (let i = 0; i < number_of_types; i++) {
-  for (let j = 0; j < number_of_types; j++) {
-    for (let k = 0; k < number_of_types; k++) {
-      let code = order[type[i]] + order[type[j]] + order[type[k]];
-      doubles[code] = types[k][i] * types[k][j];
-    }
-  }
-}
